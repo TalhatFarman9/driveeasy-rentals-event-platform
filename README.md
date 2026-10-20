@@ -13,3 +13,8 @@ A small Laravel app where DriveEasy Rentals shows upcoming events and lets visit
 2. copy .env.example to .env, then run php artisan key:generate
 3. php artisan migrate:fresh --seed
 4. php artisan serve
+
+## Validation rules
+- name: required, text, max 255 characters
+- email: required, valid format (must contain @ and a domain with a dot), max 255 characters
+- Validation runs on the server in RegistrationController@store, and errors are shown on the form
