@@ -10,5 +10,5 @@ Route::get('/', function () {
 
 Route::get('/events', [EventsController::class, 'index'])->name('events.index');
 
-Route::get('/events/{event}/register', [RegistrationController::class, 'create'])->name('registrations.create');
-Route::post('/events/{event}/register', [RegistrationController::class, 'store'])->name('registrations.store');
+Route::get('/register', [RegistrationController::class, 'create'])->name('registrations.create');
+Route::post('/register', [RegistrationController::class, 'store'])->name('registrations.store');

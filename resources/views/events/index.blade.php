@@ -7,7 +7,7 @@
             <h1>Upcoming Events</h1>
             @if (session('success'))
     <div class="form-success">{{ session('success') }}</div>
-            @endif
+@endif
             <form method="GET" action="{{ route('events.index') }}" class="search-form">
                 <input type="text" name="search" placeholder="Search by title or location" value="{{ $search }}">
                 <button type="submit" class="btn"> Search </button>
@@ -18,7 +18,7 @@
         <h3> {{ $event -> title }}</h3>
         <p class="event-mata"> {{ \Carbon\Carbon::parse($event->event_date)->format('d M Y') }} &middot; {{ $event->location }}</p>
         <p> {{ $event-> description }}</p>
-        <a href="{{ route('registrations.create', $event) }}" class="btn">Register</a>
+        <a href="{{ route('registrations.create', ['event' => $event->id]) }}" class="btn">Register</a>
     </div>
 @empty
     <p>No events found.</p>

@@ -8,14 +8,15 @@ use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
-    public function create(Event $event)
+    public function create(Request $request)
     {
         return view('registrations.create', [
-            'event' => $event,
+            'events' => Event::orderBy('event_date')->get(),
+            'selectedEvent' => $request->query('event'),
         ]);
     }
 
-    public function store(Request $request, Event $event)
+    public function store(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -25,7 +26,10 @@ class RegistrationController extends Controller
                 'regex:/^[^@\s]+@[^@\s]+\.[^@\s]+$/',
                 'max:255',
             ],
+            'event_id' => 'required|exists:events,id',
         ]);
+
+        $event = Event::findOrFail($validated['event_id']);
 
         Registration::create([
             'event_id' => $event->id,

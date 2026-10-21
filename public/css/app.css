@@ -246,3 +246,11 @@ body {
     border-radius: 6px;
     margin-bottom: 20px;
 }
+
+.register-form select {
+    padding: 11px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font: inherit;
+    background: #fff;
+}
