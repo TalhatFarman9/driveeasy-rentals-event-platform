@@ -254,3 +254,30 @@ body {
     font: inherit;
     background: #fff;
 }
+
+/* Pagination */
+.pagination {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.pagination .page-link {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #1c4a5f;
+    text-decoration: none;
+}
+
+.pagination .active .page-link {
+    background: #1c4a5f;
+    border-color: #1c4a5f;
+    color: #fff;
+}
+
+.pagination .disabled .page-link {
+    color: #aaa;
+}

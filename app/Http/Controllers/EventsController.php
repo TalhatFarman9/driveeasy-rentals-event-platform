@@ -15,7 +15,7 @@ class EventsController extends Controller
                 ->orWhere('location', 'like', "%{$search}%");
         })
         ->orderBy('event_date')
-        ->paginate(6)
+        ->paginate(3)
         ->withQueryString();
     return view('events.index', [
         'events' => $events,
